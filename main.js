@@ -7,7 +7,7 @@
 
 const compareToTen = function(num){
 let val = num <= 10;
-
+let randomNum = Math.floor(Math.random() * 20) + 1
 return new Promise((resolve, reject)=>{
   if(!val){
     reject(`${num} is less than 10, error!`);
