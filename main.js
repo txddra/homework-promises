@@ -5,6 +5,23 @@
 // create a variable randomNum that creates a random number between 1 and 20
 // use it as your argument to invoke your compareToTen function
 
+const compareToTen = function(num){
+let val = num <= 10;
+
+return new Promise((resolve, reject)=>{
+  if(!val){
+    reject(`${num} is less than 10, error!`);
+  }
+  else if(num => 10 ){
+    resolve(`${num}is greater than or equal to 10, resolved!`)
+  }
+  
+})
+}
+compareToTen(givenNum)
+.then(givenNum)
+
+
 //2.
 // create a global variable called order. It will hold a string with whatever drink you want to order, for example, a 'Slurpy'
 //create a promise called drink
