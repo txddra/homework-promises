@@ -8,11 +8,11 @@
 const compareToTen = new Promise(function(resolve, reject){
  
 let randomNum = Math.floor(Math.random() * 20) + 1
-let val = true
-if(val){
-    reject()
+let val = randomNum >=10;
+if(!val){
+    reject(`${randomNum} is less than 10, error!`)
   }
-  else if(randomNum => 10 ){
+  else if(val){
     resolve(randomNum)
   }
   
@@ -29,7 +29,7 @@ compareToTen.then((data) =>{
   console.log(`${data} is greater than or equal to 10, resolved!`)
   // let x = randomNum 
 }).catch((error)=>{
-  console.log(`${randomNum} is less than 10, error!`,error)
+  console.log(error)
 })
 
 
