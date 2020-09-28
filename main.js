@@ -5,30 +5,34 @@
 // create a variable randomNum that creates a random number between 1 and 20
 // use it as your argument to invoke your compareToTen function
 
-const compareToTen = new Promise(function(resolve, reject){
- 
-let randomNum = Math.floor(Math.random() * 20) + 1
-let val = randomNum >=10;
-if(!val){
-    reject(`${randomNum} is less than 10, error!`)
+const compareToTen = new Promise(function (resolve, reject) {
+
+  let randomNum = Math.floor(Math.random() * 20) + 1
+  let val = randomNum >= 10;
+  if (!val) {
+    setTimeout(() => {
+      reject(`${randomNum} is less than 10, error!`)
+    }, 2000)
+  } else if (val) {
+    setTimeout(() => {
+        resolve(randomNum)
+      }, 2000)
+
   }
-  else if(val){
-    resolve(randomNum)
-  }
-  
+
 })
 
 // return new Promise((resolve, reject)=>{
 //   se if(num => 10 ){
 //     resolve(randomNum)
 //   }
-  
+
 // })
 // }
-compareToTen.then((data) =>{
+compareToTen.then((data) => {
   console.log(`${data} is greater than or equal to 10, resolved!`)
   // let x = randomNum 
-}).catch((error)=>{
+}).catch((error) => {
   console.log(error)
 })
 
@@ -38,22 +42,28 @@ compareToTen.then((data) =>{
 //create a promise called drink
 // inside your promise:
 // first log 'I'll be right back with your <order variable>'.
-const order = "";
-console.log(`I'll be right back with your ${order}`)
+const order = "Slurpee";
+
 const orderCannotBeFilled = false;
 
-const getMyOrder = new Promise(function(resolve, reject){
-if(!orderCannotBeFilled){
-  setTimeout(()=>{
-    reject(`Sorry we are all out of ${order}`)
-  }, 4000)
-}else{
-  setTimeout(() =>{
-    resolve(order)
-  }, 400)
-}
+const getMyOrder = new Promise(function (resolve, reject) {
+  if (!orderCannotBeFilled) {
+    setTimeout(() => {
+      reject(`Sorry we are all out of ${order}`)
+    }, 2000)
+  } else {
+    setTimeout(() => {
+      resolve(order)
+    }, 4000)
+  }
 
-}
+})
+
+getMyOrder.then((order) => {
+  console.log(`I'll be right back with your ${order}`)
+}).catch((err)=>{
+   console.log(err)
+})
 
 // next create another boolean variable, orderCannotBeFilled. Set it to false
 // when order is orderCannotBeFilled is true, promise should reject after 2 seconds with a message,
@@ -97,8 +107,7 @@ const complicatedArray = ['cucumber', 44, true]; //returns "Error Not All Items 
 // g. In that same thenable return 30% of each of the sales and pass the value to the next thenable
 // h. Add all of the sales totals together and return a string saying: "Total sales for everyone from the Legal profession after taxes is $30000" if the value of the added sales is 30000
 const json = {
-  data: [
-    {
+  data: [{
       name: 'NextGen Advisors',
       industry: 'Professional Services',
       contact: 'John Rutton',
@@ -173,8 +182,7 @@ const json = {
 // Only choose the players who play football and use deconstruction and the ternary operator to complete this piece
 //e. In the next thenable, console.log the original array to show it has not been mutated
 //f. Be sure to include you Promise Error Handling using the catch
-let athletes = [
-  {
+let athletes = [{
     name: 'Tom Brady',
     position: 'quarterback',
     team: 'New England',
@@ -199,8 +207,16 @@ let athletes = [
     position: 'quarterback',
     team: 'Seattle Seahawks',
   },
-  { name: 'Chris Paul', position: 'guard', team: 'Oklahoma City Thunder' },
-  { name: "D'Angelo Russell", position: 'guard', team: 'Golden Warriors' },
+  {
+    name: 'Chris Paul',
+    position: 'guard',
+    team: 'Oklahoma City Thunder'
+  },
+  {
+    name: "D'Angelo Russell",
+    position: 'guard',
+    team: 'Golden Warriors'
+  },
   {
     name: 'Eli Manning',
     position: 'quarterback',
