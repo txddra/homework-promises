@@ -39,8 +39,21 @@ compareToTen.then((data) =>{
 // inside your promise:
 // first log 'I'll be right back with your <order variable>'.
 const order = "";
+console.log(`I'll be right back with your ${order}`)
+const orderCannotBeFilled = false;
 
+const getMyOrder = new Promise(function(resolve, reject){
+if(!orderCannotBeFilled){
+  setTimeout(()=>{
+    reject(`Sorry we are all out of ${order}`)
+  }, 4000)
+}else{
+  setTimeout(() =>{
+    resolve(order)
+  }, 400)
+}
 
+}
 
 // next create another boolean variable, orderCannotBeFilled. Set it to false
 // when order is orderCannotBeFilled is true, promise should reject after 2 seconds with a message,
