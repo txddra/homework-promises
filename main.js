@@ -5,21 +5,32 @@
 // create a variable randomNum that creates a random number between 1 and 20
 // use it as your argument to invoke your compareToTen function
 
-const compareToTen = function(num){
-let val = num <= 10;
+const compareToTen = new Promise(function(resolve, reject){
+ 
 let randomNum = Math.floor(Math.random() * 20) + 1
-return new Promise((resolve, reject)=>{
-  if(!val){
-    reject(`${num} is less than 10, error!`);
+let val = true
+if(val){
+    reject()
   }
-  else if(num => 10 ){
-    resolve(`${num}is greater than or equal to 10, resolved!`)
+  else if(randomNum => 10 ){
+    resolve(randomNum)
   }
   
 })
-}
-compareToTen(givenNum)
-.then(givenNum)
+
+// return new Promise((resolve, reject)=>{
+//   se if(num => 10 ){
+//     resolve(randomNum)
+//   }
+  
+// })
+// }
+compareToTen.then((data) =>{
+  console.log(`${data} is greater than or equal to 10, resolved!`)
+  // let x = randomNum 
+}).catch((error)=>{
+  console.log(`${randomNum} is less than 10, error!`,error)
+})
 
 
 //2.
