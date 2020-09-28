@@ -46,7 +46,7 @@ const order = "Slurpee";
 
 const orderCannotBeFilled = false;
 
-const getMyOrder = new Promise(function (resolve, reject) {
+const drink = new Promise(function (resolve, reject) {
   if (!orderCannotBeFilled) {
     setTimeout(() => {
       reject(`Sorry we are all out of ${order}`)
@@ -59,7 +59,7 @@ const getMyOrder = new Promise(function (resolve, reject) {
 
 })
 
-getMyOrder.then((order) => {
+drink.then((order) => {
   console.log(`I'll be right back with your ${order}`)
 }).catch((err)=>{
    console.log(err)
