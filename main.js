@@ -34,10 +34,14 @@ compareToTen.then((data) =>{
 
 
 //2.
-// create a global variable called order. It will hold a string with whatever drink you want to order, for example, a 'Slurpy'
+// create a global variable called order. It will hold a string with whatever drink you want to order, for example, a 'Slurpee'
 //create a promise called drink
 // inside your promise:
 // first log 'I'll be right back with your <order variable>'.
+const order = "";
+
+
+
 // next create another boolean variable, orderCannotBeFilled. Set it to false
 // when order is orderCannotBeFilled is true, promise should reject after 2 seconds with a message,
 // 'Sorry we are all out of <whatever the order is>' (not hard coded order)
@@ -51,13 +55,13 @@ compareToTen.then((data) =>{
 
 // SAMPLE OUTPUT:
 // resolve out put should be
-// Server says: "I'll be right back with your Slurpy"
-// Server returns: "Here is your Slurpy".
+// Server says: "I'll be right back with your Slurpee"
+// Server returns: "Here is your Slurpee".
 
 // OR
 // reject output in terminal should be
-// Server says: "I'll be right back with your Slurpy"
-// Sever returns: "Sorry, We are all out of Slurpy"
+// Server says: "I'll be right back with your Slurpee"
+// Sever returns: "Sorry, We are all out of Slurpee"
 
 //3.CHAIN
 //Write two separate functions that return promises
