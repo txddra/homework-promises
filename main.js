@@ -37,37 +37,25 @@ compareToTen.then((data) => {
 })
 
 
+
+
+
+
+
+
 //2.
 // create a global variable called order. It will hold a string with whatever drink you want to order, for example, a 'Slurpee'
 //create a promise called drink
 // inside your promise:
 // first log 'I'll be right back with your <order variable>'.
-const order = "Slurpee";
 
-const orderCannotBeFilled = false;
-
-const drink = new Promise(function (resolve, reject) {
-  if (!orderCannotBeFilled) {
-    setTimeout(() => {
-      reject(`Sorry we are all out of ${order}`)
-    }, 2000)
-  } else {
-    setTimeout(() => {
-      resolve(order)
-    }, 4000)
-  }
-
-})
-
-drink.then((order) => {
-  console.log(`I'll be right back with your ${order}`)
-}).catch((err)=>{
-   console.log(err)
-})
 
 // next create another boolean variable, orderCannotBeFilled. Set it to false
+
 // when order is orderCannotBeFilled is true, promise should reject after 2 seconds with a message,
+
 // 'Sorry we are all out of <whatever the order is>' (not hard coded order)
+
 // otherwise resolve the order after 4 seconds saying 'Server returns: 'Here is your <whatever the order is>'
 
 // Now consume the promise
@@ -86,6 +74,37 @@ drink.then((order) => {
 // Server says: "I'll be right back with your Slurpee"
 // Sever returns: "Sorry, We are all out of Slurpee"
 
+
+
+const order = "Slurpee";
+
+const orderCannotBeFilled = true;
+
+const drink = new Promise(function (resolve, reject) {
+  if (!orderCannotBeFilled) {
+    setTimeout(() => {
+      reject('server says:')
+    }, 2000)
+  } else {
+    setTimeout(() => {
+      resolve(order)
+    }, 4000)
+  }
+
+})
+
+drink.then((order) => {
+console.log(`Server Returns: 'Here's your ${order}`)
+
+  console.log(`Server says: I'll be right back with your ${order}`)
+
+}).catch((err)=>{
+  console.log(`Sorry we are all out of ${order}`)
+})
+
+
+
+
 //3.CHAIN
 //Write two separate functions that return promises
 // The first function, makeAllCaps(), will take in an array of words and capitalize them.
@@ -94,8 +113,39 @@ drink.then((order) => {
 // Test the functions separately
 // Then test what happens if you chain the 2 functions on a successful array
 
+
 const arrayOfWords = ['cucumber', 'tomatos', 'avocado']; //returns ['CUCUMBER','TOMATOES','AVOCADO']
 const complicatedArray = ['cucumber', 44, true]; //returns "Error Not All Items are strings"
+
+
+
+const makeAllCaps = new Promise(function(resolve, reject){
+let cap = true;
+let words = '';
+if(!cap){
+  setTimeout(()=>{
+reject('Something went wrong')
+  }
+  ,2000)
+
+}else{
+  setTimeout(()=>{
+  resolve(words)
+  }, 2000)
+}
+
+})
+
+
+makeAllCaps.then((words)=>{
+  console.log(words.toUpperCase())
+}
+
+)
+
+
+
+
 
 //4.
 // a. Create a variable, totalSales that creates a promise.
@@ -164,7 +214,7 @@ const json = {
   ],
 };
 
-// 5. Based on given athlets array
+// 5. Based on given athletes array
 //a.  Write a function called playerFunction that returns a promise which copies the array into a new array called 'playerArr'.
 // Make sure your function is re-useable so no hard coded values.
 //b. Now invoke the function
