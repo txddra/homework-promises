@@ -115,14 +115,15 @@ drink.then((order) => {
 // Then test what happens if you chain the 2 functions on a successful array
 
 
-const arrayOfWords = ['cucumber', 'tomatos', 'avocado']; //returns ['CUCUMBER','TOMATOES','AVOCADO']
+const arrayOfWords = ['cucumber', 'tomatoes', 'avocado']; //returns ['CUCUMBER','TOMATOES','AVOCADO']
 const complicatedArray = ['cucumber', 44, true]; //returns "Error Not All Items are strings"
 
 
 
 const makeAllCaps = new Promise(function(resolve, reject){
-let cap = true;
-let words = '';
+
+let words = 'father';
+let cap = words.toUpperCase();
 if(!cap){
   setTimeout(()=>{
 reject('Something went wrong')
@@ -142,7 +143,9 @@ makeAllCaps.then((words)=>{
   console.log(words.toUpperCase())
 }
 
-)
+).catch((err)=>{
+  console.log(err)
+})
 
 
 
