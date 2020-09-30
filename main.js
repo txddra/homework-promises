@@ -83,7 +83,7 @@ const orderCannotBeFilled = true;
 const drink = new Promise(function (resolve, reject) {
   if (!orderCannotBeFilled) {
     setTimeout(() => {
-      reject('server says:')
+      reject()
     }, 2000)
   } else {
     setTimeout(() => {
@@ -94,12 +94,13 @@ const drink = new Promise(function (resolve, reject) {
 })
 
 drink.then((order) => {
-console.log(`Server Returns: 'Here's your ${order}`)
+  console.log(`Server says: 'I'll be right back with your ${order}'`)
+  console.log(`Server Returns: 'Here's your ${order}'`)
 
-  console.log(`Server says: I'll be right back with your ${order}`)
 
 }).catch((err)=>{
-  console.log(`Sorry we are all out of ${order}`)
+  console.log(`Server says:'I'll be right back with your ${order}' `)
+  console.log(`Server Returns: 'Sorry we are all out of ${order}'`)
 })
 
 
